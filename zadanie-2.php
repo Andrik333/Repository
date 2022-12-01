@@ -22,7 +22,7 @@ function evenNumbers(int $start, int $end, int $count = 2)
     return implode(', ', $res);
 }
 
-echo "Задание 1 (четные): " . evenNumbers(3, 9) . "</br></br>";
+echo "Задание 1 (четные): " . evenNumbers(6, 130) . "</br></br>";
 
 function notEvenNumbers(int $start, int $end, int $count = 2)
 {
@@ -65,7 +65,7 @@ function recursEven(int $start, int $end, int $count = 2, array $arr = [])
     
 }
 
-echo "Задание 2 (четные): " . recursEven(4, 9) . "</br></br>";
+echo "Задание 2 (четные): " . recursEven(15, 69) . "</br></br>";
 
 function recursNotEven(int $start, int $end, int $count = 2, array $arr = [])
 {
@@ -110,7 +110,7 @@ function n4(int $start, int $end, $arr)
     return implode(", ", array_filter($arr));
 }
 
-$arr4 = n4(2, 9, $arr3);
+$arr4 = n4(2, 5, $arr3);
 
 echo "Задание 4: " . $arr4 . "</br><br>";
 
@@ -159,7 +159,7 @@ function n8($arr)
 
     for ($i = 0; $i < count($arr); $i++) {
         for ($l = 0; $l < count($arr); $l++) {
-            if($arr[$i] < $arr[$l] and $i != $l) {
+            if($arr[$i] > $arr[$l] and $i != $l) {
                 [$arr[$i], $arr[$l]] = [$arr[$l], $arr[$i]];
             }
         }
