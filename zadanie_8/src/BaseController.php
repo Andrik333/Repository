@@ -12,11 +12,18 @@ class BaseController
     public $request;
     public $showMessage = [];
     public $user;
+    public $controllerID;
+    public $actionID;
+    public $controllerPath;
 
     public function __construct()
     {
         $this->request = new Request();
         $this->user = (new UsersModel())->getUser() ?? new UsersModel;
+        $app = new Application;
+        $this->controllerID = $app->controller;
+        $this->actionID = $app->action;
+        $this->controllerPath = $app->controllerPath;
     }
 
     public function showMessage(string $text, string $type = 'error', string $url = null)
