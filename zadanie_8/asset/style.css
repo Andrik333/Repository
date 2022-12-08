@@ -1,0 +1,227 @@
+html, body, * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-align: left;
+    font-stretch: normal;
+    font-style: normal;
+    text-size-adjust: none;
+}
+
+html, body {
+    min-width: 100vw;
+    min-height: 100vh;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden;
+}
+
+body > .content{
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    position: sticky;
+    top: 0;
+}
+
+form:not(#add-comment-form) {
+    padding: 10px;
+    min-width: 250px;
+}
+
+input, textarea {
+    padding: 3px 5px;
+    resize: none;
+}
+
+h3 {
+    margin-top: 10px;
+}
+
+.style-block, #alert {
+    border: 1px solid #bbbbbb;
+    border-radius: 10px;
+    box-shadow: 0px 0px 7px 0px #bbb;
+}
+
+.log-in {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+    background-color: white;
+    box-shadow: 0px 2px 5px 0px #8b8b8b;
+}
+
+.header-content > * {
+    margin-right: 10px;
+}
+
+.header-content > *:last-child {
+    margin-right: 0;
+}
+
+.article-warapper {
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.article-news,
+.comments,
+.add-comments {
+    margin-bottom: 20px;
+    padding: 10px;
+    max-width: 400px;
+    width: 100%;
+}
+
+.comments,
+.add-comments {
+    padding: 0 10px;
+}
+
+.article-news .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    padding-bottom: 10px;
+}
+
+.article-news .header .title {
+    font-size: 1.2em;
+}
+
+.article-news .header .date,
+.comment-date,
+.comment-autor {
+    font-size: 0.8em;
+}
+
+.article-news .text {
+    padding: 10px 0;
+    border-top: 1px solid #a1a1a1;
+    border-bottom: 1px solid #a1a1a1;
+}
+
+.article-news .footer {
+    padding-top: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.article-news .footer .autor {
+    padding: 5px 0;
+}
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    text-decoration: none;
+    background-color: #00a0ff;
+    color: white;
+    padding: 5px;
+    border-radius: 5px;
+    border: none;
+    min-height: 30px;
+    cursor: pointer;
+}
+
+.button:hover {
+    box-shadow: 0px 0px 4px 1px #817d7d;
+    z-index: 1;
+}
+
+.login-form {
+    padding: 10px;
+}
+
+.block-form {
+    padding: 10px 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.block-form.input {
+    padding: 5px 0;
+}
+
+.block-form .button {
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.block-form .button:last-child {
+    margin-bottom: 0;
+}
+
+#alert {
+    width: 200px;
+    min-height: 80px;
+    background: white;
+    position: fixed;
+    right: 0;
+    top: 0;
+    margin: 10px 20px;
+    padding: 10px;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 2;
+}
+
+#alert.show {
+    display: flex;
+}
+
+#alert .title {
+    width: 100%;
+    display: block;
+    font-size: 1.2em;
+    font-weight: 300;
+}
+
+#alert.error .title {
+    color: red;
+}
+
+#alert.complite .title {
+    color: green;
+}
+
+#create-news-form {
+    width: 500px;
+}
+
+.comment {
+    margin: 10px 0;
+    padding: 7px;
+}
+
+.comment-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.comment-text {
+    padding: 5px 0;
+    border-top: 1px solid #a1a1a1;
+}

@@ -1,0 +1,5 @@
+RewriteEngine On
+RewriteBase /zadanie_8
+
+RewriteCond %{REQUEST_URI} !^/zadanie_8/asset/
+RewriteRule .+ index.php
