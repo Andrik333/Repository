@@ -20,6 +20,13 @@
                     <?php if ($this->user->is_aut()): ?>
                         <a class="button" href="create-news">Добавить новость</a>
                     <?php endif; ?>
+                    <?php if ($this->actionID === 'actionNews'): ?>
+                        <button class="button red-comments" onclick="redComments()">Раскрасить</button>
+                    <?php endif; ?>
+                    <?php if ($this->actionID === 'actionIndex'): ?>
+                        <button class="button" onclick="hideNews()">Скрыть новости от:</button>
+                        <input type="text" name="autor">
+                    <?php endif; ?>
                 </div>
                 <div>
                     <?php if ($this->user->is_aut()): ?>

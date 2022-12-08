@@ -145,4 +145,26 @@ class Zadanie_8Controller extends BaseController
             return $this->render('registration');
         }
     }
+
+    public function actionRemoveComment(int $idNews, int $idComment)
+    {
+        $comment = new CommentsModel(['id' => $idComment]);
+        try {
+            $comment->remove();
+            $data = CommentsModel::find()->where(['new' => $idNews])->orderBy(['date_create' => 'DESC'])->getAll();
+            $comments = Components::createComments($data);
+            return json_encode(['status' => true, 'message' => 'Комментарий удален', 'data' => $comments]);
+        } catch (\Exception $error) {
+            return json_encode(['status' => false, 'message' => 'Ошибка при удалении']);
+        }
+    }
+
+    public function actionIndexFilterNews(string $autor)
+    {
+        $user = UsersModel::find()->where(['login' => $autor])->getOne();
+        $data = NewsModel::find()->where('autor <> ' . Components::getValue($user, 'id'))
+            ->joinWith(['autor'])->orderBy(['date_create'=> 'DESC'])->getAll();
+        $news = Components::createNews($data);
+        return json_encode(['message' => "Новости \"$autor\" скрыты", 'data' => $news]);
+    }
 }

@@ -62,3 +62,40 @@ let parseAndShowMessages = () => {
 
     localStorage.setItem('messages', JSON.stringify(localData));
 }
+
+let redComments = () => {
+    let texts = document.querySelectorAll('.comment-text');
+    texts.forEach(text => {
+        text.style.color = 'red';
+    });
+};
+
+let removeComment = (elem) => {
+
+    let data = JSON.parse(elem.dataset.comment);
+
+    fetch('remove-comment?idNews='+data.news+'&idComment='+data.comment).then(response => response.json())
+    .then(result => {
+        if (result.status) {
+            document.querySelector('.comments').remove();
+            document.querySelector('.content').insertAdjacentHTML('beforeend', result.data);
+            showAlert({message: result.message, type: 'complite'});
+        } else {
+            showAlert({message: result.message, type: 'error'});
+        }
+    });
+}
+
+let hideNews = () => {
+    let autor = document.querySelector('input[name=autor]').value.trim();
+
+    if (autor.length == 0) return;
+
+    fetch('index-filter-news?autor='+autor).then(response => response.json())
+    .then(result => {
+        let wrapper = document.querySelector('.content')
+        wrapper.innerHTML = '';
+        wrapper.insertAdjacentHTML('beforeend', result.data);
+        showAlert({message: result.message, type: 'complite'});
+    });
+}

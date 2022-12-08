@@ -32,19 +32,4 @@ $this->title = 'Новость: ' . Components::getValue($new, 'title');
     </form>
 </div>
 <?php endif; ?>
-<div class="comments style-block">
-    <h3>Комментарии</h3>
-    <?php if (count($new->comments) != 0): ?>
-            <?php foreach($new->comments as $comment) { ?>
-                <div class="comment style-block">
-                    <div class="comment-head">
-                        <span class="comment-autor">Автор: <?= Components::getValue($comment, 'autor.login') ?></span>
-                        <span class="comment-date">Дата: <?= Components::formatDate(Components::getValue($comment, 'date_create')) ?></span>
-                    </div>
-                    <p class="comment-text"><?= Components::getValue($comment, 'comment') ?></p>
-                </div>
-            <?php } ?>
-        <?php else : ?>
-            <div class="comment style-block">Комментариев нет</div>
-    <?php endif; ?>
-</div>
+<?= Components::createComments($new->comments) ?>
